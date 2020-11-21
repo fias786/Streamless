@@ -26,6 +26,8 @@ public class HomeActivity extends AppCompatActivity {
     private static final int AUDIO_CAPTURE_CODE = 2 ;
     private static final int CAMERA_CAPTURE_CODE = 3 ;
     private PermissionRequest my_request;
+    
+    public static final String USER_AGENT = "Mozilla/5.0 (Linux; Android 4.1.1; Galaxy Nexus Build/JRO03C) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,7 @@ public class HomeActivity extends AppCompatActivity {
         webSettings.setSupportMultipleWindows(true);
         webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         webSettings.setDomStorageEnabled(true);
+        webSettings.setUserAgentString(USER_AGENT);
         webView.loadUrl(getIntent().getStringExtra("URL"));
 
         webView.setWebChromeClient(new WebChromeClient(){
